@@ -4,9 +4,6 @@
       # haskell
       hls = {
         enable = true;
-        config = {
-          filetypes = ["haskell" "lhaskell" "cabal"];
-        };
       };
     };
   };
