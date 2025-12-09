@@ -4,6 +4,9 @@
     ./lspconfig.nix
     ./nui.nix
     ./orgmode.nix
+    ./texpresso.nix
+    ./vimtex.nix
+    ./luasnip/luasnip.nix
   ];
 }
 
