@@ -5,6 +5,10 @@
       hls = {
         enable = true;
       };
+      #ocaml
+      ocamllsp = {
+        enable = true;
+      };
     };
   };
 }
