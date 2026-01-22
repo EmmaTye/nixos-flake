@@ -8,6 +8,7 @@
     ./orgmode.nix
     ./texpresso.nix
     ./vimtex.nix
+    ./which-key.nix
     ./luasnip/luasnip.nix
   ];
 }
