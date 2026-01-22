@@ -1,6 +1,7 @@
 {
   imports = [
     ./cmp.nix
+    ./cornelis.nix
     ./idris2.nix
     ./lspconfig.nix
     ./nui.nix
