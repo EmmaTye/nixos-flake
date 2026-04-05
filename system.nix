@@ -22,10 +22,16 @@
   environment.systemPackages = with pkgs; [
     # git is necessary to use flakes for configuration
     git
+    nh
   ];
 
   nix.settings.experimental-features = ["nix-command" "flakes"];
   programs.zsh.enable = true;
   users.users.nixos.shell = pkgs.zsh;
+  programs.zsh.interactiveShellInit = ''
+     switch () { # hostname default for flake output - mine is `x1`
+       nh os switch --update ~/config ;
+     }
+    '';
 }
 

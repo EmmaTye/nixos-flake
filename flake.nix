@@ -2,13 +2,13 @@
   description = "NixOS flake";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.05";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
     # Windows Subsystem for Linux
     nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
 
     home-manager = {
-      url = "github:nix-community/home-manager/release-25.05";
+      url = "github:nix-community/home-manager";
       # The `follows` keyword in inputs is used for inheritance.
       # Here, `inputs.nixpkgs` of home-manager is kept consistent with
       # the `inputs.nixpkgs` of the current flake,
@@ -17,12 +17,27 @@
     };
 
     nixvim = {
-      url = "github:nix-community/nixvim/nixos-25.05";
+      url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    # Note: the current pinned cornelis version on
+    # nixpkgs is wildyly out of date, so using a custom
+    # input & overlay to get the correct cornelis version
+    cornelis = {
+      url = "github:agda/cornelis";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
   };
 
-  outputs = inputs@{ self, nixpkgs, nixos-wsl, home-manager, nixvim, ... }: {
+  outputs = inputs@{ self
+                     , nixpkgs
+                     , nixos-wsl
+                     , home-manager
+                     , nixvim
+                     , cornelis
+                     , ... }: {
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
 
@@ -35,6 +50,10 @@
 
 	# home-manager as a NixOS module	
         home-manager.nixosModules.home-manager {
+          # Note: the current pinned cornelis version on
+          # nixpkgs is wildyly out of date, so using a custom
+          # input & overlay to get the correct cornelis version
+          nixpkgs.overlays = [cornelis.overlays.cornelis];
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
           home-manager.users.nixos = import ./home;

@@ -1,11 +1,11 @@
 {
   programs.git = {
     enable = true;
-    
-    userName = "EmmaTye";
-    userEmail = "tyelouiseemma@gmail.com";
-
-    extraConfig = {
+    settings = {
+      user = {
+        name = "EmmaTye";
+        email = "tyelouiseemma@gmail.com";
+      };
       core.editor = "nvim";
       init.defaultBranch = "main";
     };
