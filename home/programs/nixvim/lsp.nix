@@ -9,6 +9,10 @@
       ocamllsp = {
         enable = true;
       };
+      # isabelle
+      isabelle = {
+        enable = true;
+      };
     };
   };
 }

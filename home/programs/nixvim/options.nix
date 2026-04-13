@@ -13,6 +13,12 @@
       expandtab = true;
     };
 
+    filetype = {
+      extension = {
+          thy = "isabelle";
+      };
+    };
+
     autoCmd = [
       # Cornelis (Agda) commands
       {
