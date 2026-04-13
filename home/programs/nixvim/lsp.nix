@@ -4,6 +4,7 @@
       # haskell
       hls = {
         enable = true;
+        package = null;
       };
       #ocaml
       ocamllsp = {
