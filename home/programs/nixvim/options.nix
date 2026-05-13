@@ -26,6 +26,7 @@
         pattern = [ "*.agda" ];
         callback = { __raw = ''
           function()
+            vim.keymap.set('i', '<localleader>', ':call cornelis#prompt_input()')
             vim.keymap.set('n', '<leader>l', ':CornelisLoad<CR>', { buffer = true })
             vim.keymap.set('n', '<leader>r', ':CornelisRefine<CR>', { buffer = true })
             vim.keymap.set('n', '<leader>d', ':CornelisMakeCase<CR>', { buffer = true })

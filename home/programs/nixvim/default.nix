@@ -4,7 +4,6 @@
 {
   imports = [
     inputs.nixvim.homeModules.nixvim
-    ./keymaps.nix
     ./lsp.nix
     ./plugins
     ./options.nix
@@ -28,7 +27,9 @@
         };
       })
     ];
-    extraConfigLua = "vim.g.cornelis_use_global_binary = 1";
+    globals = {
+      cornelis_use_global_binary = "1";
+    };
   };
 }
 
