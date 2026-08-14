@@ -9,6 +9,7 @@
     ./vimtex.nix
     ./which-key.nix
     ./luasnip/luasnip.nix
+    ./lean.nix
   ];
 }
 
