@@ -15,6 +15,11 @@
     username = "nixos";
     homeDirectory = "/home/nixos";
 
+    sessionPath = [
+      # SumatraPDF for use with VimTex
+      "/mnt/c/Users/cxb25165/AppData/Local/SumatraPDF"
+    ];
+
     packages = with pkgs; [
       zip
       unzip
